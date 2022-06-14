@@ -15,4 +15,14 @@ class signupActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
     }
 
+
 }
+//fun validate(){
+//    var firstname=etfirstname.text.toString()
+//    var secondname=etsecondname.text.toString()
+//    var password=etpassword.text.toString()
+//
+//
+//
+//
+//}

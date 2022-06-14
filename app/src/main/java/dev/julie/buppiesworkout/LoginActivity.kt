@@ -24,18 +24,28 @@ class LoginActivity : AppCompatActivity() {
         etpassword=findViewById(R.id.etpassword)
         tilEmail = findViewById(R.id.tilEmail)
         tilpassword = findViewById(R.id.tilpassword)
+        btnlogin=findViewById(R.id.btnlogin)
+        btnlogin.setOnClickListener {
+            val intent=Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+
+        }
         tvsign.setOnClickListener{
             val intent=Intent(this,signupActivity::class.java)
             startActivity(intent)
 
         }
-       var email=etemail.text.toString()
-       var password=etpassword.text.toString()
-       if(email.isBlank()){
-           tilEmail.error="email is required"
-       }
-      if(password.isBlank()){
-            tilpassword.error="password is required" }
+//       var email=etemail.text.toString()
+//       var password=etpassword.text.toString()
+//
+//       if(email.isBlank()){
+//           tilEmail.error="email is required"
+//       }
+//      if(password.isBlank()){
+//
+    //            tilpassword.error="password is required" }
+
 }
+
 }
 
