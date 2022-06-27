@@ -3,50 +3,45 @@ package dev.julie.buppiesworkout
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import com.google.android.material.textfield.TextInputLayout
+import dev.julie.buppiesworkout.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var tvSignUp: TextView
-    lateinit var etEmail: TextInputLayout
-    lateinit var etPassword:TextInputLayout
-    lateinit var tilEmail: TextInputLayout
-    lateinit var tilPassword:TextInputLayout
-    lateinit var btnLogin:Button
+    lateinit var binding: ActivityLoginBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        tvSignUp=findViewById(R.id.tvsignup)
-        etEmail=findViewById(R.id.etEmail)
-        etPassword=findViewById(R.id.etpassword)
-        tilEmail=findViewById(R.id.tilEmail)
-        tilPassword=findViewById(R.id.tilpassword)
-        btnLogin=findViewById(R.id.btnLogin)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvSignUp.setOnClickListener {
-            val intent=Intent(this,HomeActivity::class.java)
+
+        binding.tvSignUp.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
 
         }
-        btnLogin.setOnClickListener{
-            val intent=Intent(this,signupActivity::class.java)
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, signupActivity::class.java)
             startActivity(intent)
+            validateLogin()
 
         }
-//       var email=etemail.text.toString()
-//       var password=etpassword.text.toString()
-//
-//       if(email.isBlank()){
-//           tilEmail.error="email is required"
-//       }
-//      if(password.isBlank()){
-//
-    //            tilpassword.error="password is required" }
+        finish()
 
+    }
+
+    fun validateLogin() {
+        val Email = binding.etEmail.text.toString()
+        val password = binding.etpassword.text.toString()
+        var error = false
+
+        if (Email.isBlank()) {
+            binding.tilEmail.error = "password is required"
+
+            if (password.isBlank()) {
+                binding.tilpassword.error = "password is required"
+
+            }
+        }
+    }
 }
-
-}
-
